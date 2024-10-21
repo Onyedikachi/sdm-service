@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4  
       - name: Build and Push Docker Image
         env:
-          REGISTRY_NAME: "794038231069.dkr.ecr.us-west-2.amazonaws.com"
+          REGISTRY_NAME: "794038231069.dkr.ecr.eu-west-2.amazonaws.com"
           REPOSITORY_NAME: "sdm-service"
           IMAGE_TAG: "prod"
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
