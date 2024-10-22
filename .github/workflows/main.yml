@@ -17,7 +17,7 @@ jobs:
       - name: Build and Push Docker Image
         env:
           REGISTRY_NAME: "794038231069.dkr.ecr.eu-west-2.amazonaws.com"
-          REPOSITORY_NAME: "sdm-service"
+          REPOSITORY_NAME: "fem-eci-service"
           IMAGE_TAG: "prod"
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
