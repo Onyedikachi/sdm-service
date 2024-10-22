@@ -6,6 +6,7 @@ on:
 
 jobs:
   build-push-docker:
+    environment: test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -28,6 +29,7 @@ jobs:
           docker push ${REGISTRY_NAME}/${REPOSITORY_NAME}:${IMAGE_TAG}
 
   update-ssm:
+    environment: test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -55,6 +57,7 @@ jobs:
   restart:
     needs: [build-push-docker, update-ssm]
     runs-on: ubuntu-latest
+    environment: test
     defaults:
       run:
         working-directory: .
@@ -69,7 +72,7 @@ jobs:
         run: |
           #!/bin/bash
           aws ecs describe-task-definition \
-              --task-definition arn:aws:ecs:us-west-2:677459762413:task-definition/${ECS_SERVICE_NAME}
+              --task-definition arn:aws:ecs:-west-2:794038231069:task-definition/${ECS_SERVICE_NAME}
           aws ecs update-service \
               --service ${ECS_SERVICE_NAME} \
               --cluster ${ECS_CLUSTER_NAME} \
